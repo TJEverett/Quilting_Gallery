@@ -76,6 +76,9 @@
 * 3:10 PM - work on building README
 * 3:50 PM - create Component_Diagram to edit later
 * 3:53 PM - end of day
+#### 06/15/2022
+* 1:40 PM - work on building Component_Diagram
+* 3:37 PM - end of day
 
 ### License
 

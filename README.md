@@ -80,8 +80,11 @@
 * 1:40 PM - work on building Component_Diagram
 * 3:37 PM - end of day
 #### 06/16/2022
-* ?:?? PM - work on building Component_Diagram
+* 1:05 PM - work on building Component_Diagram
 * 4:03 PM - end of day
+#### 06/17/2022
+* 1:05 PM - work on building Component_Diagram
+* 4:06 PM - end of day
 
 ### License
 

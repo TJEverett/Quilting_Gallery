@@ -85,6 +85,10 @@
 #### 06/17/2022
 * 1:05 PM - work on building Component_Diagram
 * 4:06 PM - end of day
+#### 11/10/2022
+* 1:45 PM - work on setting up files for building static site
+* 2:07 PM - start working on static site
+* 3:30 PM - end of day
 
 ### License
 

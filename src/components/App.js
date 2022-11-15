@@ -6,6 +6,9 @@ function App() {
   return(
     <BrowserRouter>
       <NavigationBar />
+      <div style={{height: "90px", width: "100vw"}}>
+        <p>test</p>
+      </div>
       <Switch>
         <Route path="/account">
           <h2>Account Path</h2>

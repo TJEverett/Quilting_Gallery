@@ -89,6 +89,10 @@
 * 1:45 PM - work on setting up files for building static site
 * 2:07 PM - start working on static site
 * 3:30 PM - end of day
+#### 11/15/2022
+* 2:00 PM - work on CSS file for styling drop down menus
+* 3:15 PM - return to working on building NavigationBar using new CSS styles
+* 3:45 PM - end of day
 
 ### License
 

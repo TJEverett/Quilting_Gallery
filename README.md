@@ -93,6 +93,9 @@
 * 2:00 PM - work on CSS file for styling drop down menus
 * 3:15 PM - return to working on building NavigationBar using new CSS styles
 * 3:45 PM - end of day
+#### 11/16/2022
+* 1:45 PM - work on designing account component
+* 3:50 PM - end of day
 
 ### License
 

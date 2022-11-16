@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavigationBar from "./NavigationBar";
+import Account from "./Account";
 
 function App() {
   return(
@@ -11,7 +12,7 @@ function App() {
       </div>
       <Switch>
         <Route path="/account">
-          <h2>Account Path</h2>
+          <Account />
         </Route>
         <Route path="/projects">
           <h2>Projects Path</h2>

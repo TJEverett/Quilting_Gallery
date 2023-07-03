@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavigationBar from "./NavigationBar";
 import Account from "./Account";
+import ProjectRouter from "./ProjectRouter";
 
 function App() {
   return(
@@ -15,7 +16,7 @@ function App() {
           <Account />
         </Route>
         <Route path="/projects">
-          <h2>Projects Path</h2>
+          <ProjectRouter />
         </Route>
         <Route path="/supplies">
           <h2>Supplies Path</h2>

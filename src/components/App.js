@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavigationBar from "./NavigationBar";
 import Account from "./Account";
 import ProjectRouter from "./ProjectRouter";
+import SupplyRouter from "./SupplyRouter";
 
 function App() {
   return(
@@ -19,7 +20,7 @@ function App() {
           <ProjectRouter />
         </Route>
         <Route path="/supplies">
-          <h2>Supplies Path</h2>
+          <SupplyRouter />
         </Route>
         <Route path="/">
           <h2 style={{height: "300vh"}}>Default Path</h2>

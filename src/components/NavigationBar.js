@@ -12,8 +12,8 @@ function NavigationBar(){
       height: "86px"
     },
     text: {
-      backgroundColor: "black",
-      color: "wheat",
+      backgroundColor: "indigo",
+      color: "khaki",
     },
     enlarge: {
       fontSize: "2em",
@@ -36,7 +36,7 @@ function NavigationBar(){
     <div style={{...styles.general, ...styles.text}}>
       <div style={tableCreator(1, 2)}>
         <div>
-          <h1 className="center">Quilting Gallery</h1>
+          <h1 className="center"><Link to="/" style={{ ...styles.text, textDecoration: "none" }}>Quilting Gallery</Link></h1>
         </div>
         <div style={tableCreator(1, 3)}>
           <div className="dropdown">

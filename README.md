@@ -1,6 +1,6 @@
 # Quilting Gallery
 
-#### _Quilting Project/Material Manager, 06/14/2022_
+#### _Quilting Project/Material Manager, 07/21/2023_
 
 #### By _**Tristen Everett**_
 
@@ -70,8 +70,11 @@
 * [Create React App](https://github.com/facebook/create-react-app)
 * Redux
 * React-Redux
+* Firebase
 
-### Progress Log
+### [External Resources Used](./ResourceCredits.md)
+
+<!-- ### Progress Log
 #### 06/14/2022
 * 3:10 PM - work on building README
 * 3:50 PM - create Component_Diagram to edit later
@@ -99,7 +102,7 @@
 #### 11/18/2022
 * 2:05 PM - work on CustomModal component
 * 2:45 PM - work on adding a modal for account creation
-* 4:15 PM - end of day
+* 4:15 PM - end of day -->
 
 ### License
 

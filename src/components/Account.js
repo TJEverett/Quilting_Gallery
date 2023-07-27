@@ -1,5 +1,5 @@
 import React from "react";
-import CustomModal from "./CustomModal";
+import ModalBasic from "./ModalBasic";
 import UserForm from "./UserForm";
 
 class Account extends React.Component{
@@ -57,10 +57,12 @@ class Account extends React.Component{
       return(
         <React.Fragment>
           {/* Modal will load when "Create Account" button is clicked */}
-          <CustomModal show={this.state.newUserModal} handleClose={this.modalHide}>
-            <h1 className="center">Sign Up</h1>
-            <UserForm submitFunc={this.tempSubmit} submitMessage="Sign Up" />
-          </CustomModal>
+          <ModalBasic show={this.state.newUserModal} handleClose={this.modalHide}>
+            <div style={{width: "100%"}}>
+              <h1 className="center">Sign Up</h1>
+              <UserForm submitFunc={this.tempSubmit} submitMessage="Sign Up" />
+            </div>
+          </ModalBasic>
           
           {/* Main page information to be loaded at all times */}
           <div style={this.styles.padding}>

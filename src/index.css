@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+img {
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
 .center {
   display: flex;
   justify-content: center;

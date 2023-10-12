@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouteMatch, Switch, Route, Redirect } from "react-router-dom";
+import SupplyCreateForm from "./SupplyCreateForm";
 
 function SupplyRouter() {
   let { path, url } = useRouteMatch();
@@ -13,7 +14,7 @@ function SupplyRouter() {
         <h2>Done Supplies Route</h2>
       </Route>
       <Route path={`${url}/new`} >
-        <h2>New Supplies Route</h2>
+        <SupplyCreateForm />
       </Route>
     </Switch>
   )

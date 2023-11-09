@@ -50,7 +50,7 @@ function ModalBasic(props) {
             <img src={closeImage} alt="Close" title="Close" />
           </span>
         </div>
-        <div className="center light-box" style={styles.border}>
+        <div className="flex-center light-box" style={styles.border}>
           {props.children}
         </div>
       </div>

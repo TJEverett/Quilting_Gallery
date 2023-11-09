@@ -46,8 +46,8 @@ class Account extends React.Component{
     if(this.state.authenticated === true){
       return(
         <React.Fragment>
-          <h1 className="center">Sign out</h1>
-          <div className="center">
+          <h1 className="flex-center">Sign out</h1>
+          <div className="flex-center">
             <button onClick={this.tempSubmit} style={this.styles.button}>Sign Out</button>
           </div>
         </React.Fragment>
@@ -59,7 +59,7 @@ class Account extends React.Component{
           {/* Modal will load when "Create Account" button is clicked */}
           <ModalBasic show={this.state.newUserModal} handleClose={this.modalHide}>
             <div style={{width: "100%"}}>
-              <h1 className="center">Sign Up</h1>
+              <h1 className="flex-center">Sign Up</h1>
               <UserForm submitFunc={this.tempSubmit} submitMessage="Sign Up" />
             </div>
           </ModalBasic>

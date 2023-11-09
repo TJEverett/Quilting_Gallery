@@ -159,37 +159,17 @@ class SupplyCreateForm extends React.Component {
             body:{
               fontSize: "1.5em",
               fontWeight: "700",
-              margin: "0em",
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center"
+              margin: "0em"
             },
             modal:{
               fontSize: "2em",
-              margin: ".5em",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "flex-end"
+              margin: ".5em"
             }
           },
           input:{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
             height: "100%",
             fontSize: "1em",
             fontWeight: "500"
-          },
-          modal:{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            flexDirection: "column"
-          },
-          button:{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center"
           }
         }
       },
@@ -235,15 +215,15 @@ class SupplyCreateForm extends React.Component {
 
     if(this.state.modalPosition < this.state.imageArray.length){ //display picture and allow deletion
       modalBody = 
-        <div className="center" style={{height: "100%"}}>
+        <div className="flex-center" style={{height: "100%"}}>
           <img style={styles.picture.framing} src={this.state.imageArray[this.state.modalPosition]} alt={"Photo #" + this.state.modalPosition} />
         </div>;
     }else{ //allow input of url for display of new picture then ability to "accept" picture into array for supply
       modalBody = 
-        <div className="center" style={{height: "100%", width: "100%"}}>
+        <div className="flex-center" style={{height: "100%", width: "100%"}}>
           <form className=" shadow-border" style={this.combineStyles(this.generateTableStyle(2, 1, "auto"), styles.border, { height: "80%", width: "80%" })} onSubmit={this.urlSubmit}>
-            <p style={styles.table.cell.title.modal}>New Image Url</p>
-            <div style={styles.table.cell.modal}>
+            <p className="flex-bottom" style={styles.table.cell.title.modal}>New Image Url</p>
+            <div className="flex-left" style={{ flexDirection: "column" }}>
               <input
                 type="url"
                 name="urlNew"
@@ -270,7 +250,7 @@ class SupplyCreateForm extends React.Component {
 
     stockFormBlock = this.state.stock.map((Stock, index) => {
       return (
-        <div style={styles.table.cell.input} key={"Stock" + index}>
+        <div className="flex-left" style={styles.table.cell.input} key={"Stock" + index}>
           <p>Amount:</p>
           <input
             type="number"
@@ -308,15 +288,15 @@ class SupplyCreateForm extends React.Component {
         </ModalBasic>
 
 
-        <h1 className="center">Input Supplies</h1>
+        <h1 className="flex-center">Input Supplies</h1>
 
-        <div className="center" style={{width: "100vw"}}>
+        <div className="flex-center" style={{width: "100vw"}}>
           <form style={{width: "80vw"}} onSubmit={this.submitFunction}>
             <div className="shadow-border" style={this.combineStyles(styles.table.base, styles.border)}>
 
               <div style={styles.table.inputRow}>
-                <p style={styles.table.cell.title.body}>Supply Name*</p>
-                <div style={styles.table.cell.input}>
+                <p className="flex-right" style={styles.table.cell.title.body}>Supply Name*</p>
+                <div className="flex-left" style={styles.table.cell.input}>
                   <input
                     type="text"
                     name="supplyName"
@@ -327,8 +307,8 @@ class SupplyCreateForm extends React.Component {
               </div>
 
               <div style={styles.table.inputRow}>
-                <p style={styles.table.cell.title.body}>Location*</p>
-                <div style={styles.table.cell.input}>
+                <p className="flex-right" style={styles.table.cell.title.body}>Location*</p>
+                <div className="flex-left" style={styles.table.cell.input}>
                   <input
                     type="text"
                     name="location"
@@ -339,8 +319,8 @@ class SupplyCreateForm extends React.Component {
               </div>
 
               <div style={styles.table.inputRow}>
-                <p style={styles.table.cell.title.body}>Description</p>
-                <div style={this.combineStyles(styles.table.cell.input, {width: "50vw"})}>
+                <p className="flex-right" style={styles.table.cell.title.body}>Description</p>
+                <div className="flex-left" style={this.combineStyles(styles.table.cell.input, {width: "50vw"})}>
                   <textarea
                     name="description"
                     className="input-field"
@@ -349,8 +329,8 @@ class SupplyCreateForm extends React.Component {
               </div>
 
               <div style={styles.table.inputRow}>
-                <p style={styles.table.cell.title.body}>Comments</p>
-                <div style={this.combineStyles(styles.table.cell.input, {width: "50vw"})}>
+                <p className="flex-right" style={styles.table.cell.title.body}>Comments</p>
+                <div className="flex-left" style={this.combineStyles(styles.table.cell.input, {width: "50vw"})}>
                   <textarea
                     name="comments"
                     className="input-field"
@@ -359,8 +339,8 @@ class SupplyCreateForm extends React.Component {
               </div>
 
               <div style={styles.table.inputRow}>
-                <p style={styles.table.cell.title.body}>Photos</p>
-                <div style={this.combineStyles(styles.table.cell.input, {height: "10vh"})}>
+                <p className="flex-right" style={styles.table.cell.title.body}>Photos</p>
+                <div className="flex-left" style={this.combineStyles(styles.table.cell.input, {height: "10vh"})}>
                   <span tabIndex="0" className="interaction-field" style={{ height: "100%", aspectRatio: "1 / 1" }} onClick={this.modalShow} ><img src={imageNew} alt="Plus Button" title="Click to Add Images" /></span>
                   <p>You have {this.state.imageArray.length} images saved for this supply entry</p>
                 </div>
@@ -368,12 +348,12 @@ class SupplyCreateForm extends React.Component {
 
               <div style={styles.table.inputRow}>
                 <div style={this.combineStyles(this.generateTableStyle(this.state.stock.length + 1, 1, "1fr"), {height: "100%"})}>
-                <p style={styles.table.cell.title.body}>Stock*</p>
+                  <p className="flex-right" style={styles.table.cell.title.body}>Stock*</p>
                 </div>
                 <div style={this.generateTableStyle(this.state.stock.length + 1, 1, "1fr")}>
                   {stockFormBlock}  {/* Stock Display Logic Render Point */}
 
-                  <div style={styles.table.cell.input}>
+                  <div className="flex-left" style={styles.table.cell.input}>
                     <button disabled={disableAddStock} onClick={this.stockObjectAdd} className="positive-button" style={this.combineStyles(styles.button.effect, { marginLeft: "1.5em", marginRight: "1.5em", padding: ".5em" })} type="button">Add Stock</button>
                     <button disabled={disableRemoveStock} onClick={this.stockObjectRemove} className="negative-button" style={this.combineStyles(styles.button.effect, { marginLeft: "1.5em", marginRight: "1.5em", padding: ".5em" })} type="button">Remove Stock</button>
                   </div>
@@ -381,7 +361,7 @@ class SupplyCreateForm extends React.Component {
                 </div>
               </div>
 
-              <div style={styles.table.cell.button}>
+              <div className="flex-right">
                 <button className="shadow-button" style={styles.button.submit} type="submit">Submit</button>
               </div>
 

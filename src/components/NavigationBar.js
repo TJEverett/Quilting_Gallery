@@ -32,7 +32,7 @@ function NavigationBar(){
     <div style={styles.general} onClick={(event) => {event.target.blur()}}>
       <div style={tableCreator(1, 2)}>
         <div className="shadow-box">
-          <h1 className="center"><Link to="/" className="shadow-box" style={{textDecoration: "none"}}>Quilting Gallery</Link></h1>
+          <h1 className="flex-center"><Link to="/" className="shadow-box" style={{textDecoration: "none"}}>Quilting Gallery</Link></h1>
         </div>
         <div className="shadow-box" style={tableCreator(1, 3)}>
           <div className="dropdown">

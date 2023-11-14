@@ -34,8 +34,6 @@ function ModalBasic(props) {
       position: "relative",
       zIndex: "1",
       padding: "2.5rem",
-      background: "indigo",
-      color: "khaki",
       height: "calc(100% - 5rem)",
       width: "calc(100% - 5rem)"
     }
@@ -48,9 +46,11 @@ function ModalBasic(props) {
     <div style={modalOuterStyle} onClick={() => {props.handleClose()}}>
       <div style={styles.internal} onClick={(event) => {event.stopPropagation()}}>
         <div style={styles.exit}>
-          <img src={closeImage} alt="Close" title="Close" onClick={() => props.handleClose()} />
+          <span style={{height: "100%", aspectRatio: "1 / 1"}} tabIndex="0" className="interaction-field" onClick={() => props.handleClose()} >
+            <img src={closeImage} alt="Close" title="Close" />
+          </span>
         </div>
-        <div className="center" style={styles.border}>
+        <div className="flex-center light-box" style={styles.border}>
           {props.children}
         </div>
       </div>

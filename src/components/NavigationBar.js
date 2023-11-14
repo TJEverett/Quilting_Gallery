@@ -11,10 +11,6 @@ function NavigationBar(){
       width: "100vw",
       height: "86px"
     },
-    text: {
-      backgroundColor: "indigo",
-      color: "khaki",
-    },
     enlarge: {
       fontSize: "2em",
       fontWeight: "bold"
@@ -33,33 +29,33 @@ function NavigationBar(){
 
   //Return Logic
   return(
-    <div style={{...styles.general, ...styles.text}}>
+    <div style={styles.general} onClick={(event) => {event.target.blur()}}>
       <div style={tableCreator(1, 2)}>
-        <div>
-          <h1 className="center"><Link to="/" style={{ ...styles.text, textDecoration: "none" }}>Quilting Gallery</Link></h1>
+        <div className="shadow-box">
+          <h1 className="flex-center"><Link to="/" className="shadow-box" style={{textDecoration: "none"}}>Quilting Gallery</Link></h1>
         </div>
-        <div style={tableCreator(1, 3)}>
+        <div className="shadow-box" style={tableCreator(1, 3)}>
           <div className="dropdown">
-            <button className="dropButton" style={{...styles.enlarge, ...styles.text}}>Projects</button>
+            <button className="dropButton shadow-box" style={styles.enlarge}>Projects</button>
             <div className="dropdown-content">
-              <Link to="/projects/all" style={styles.text}>All Projects</Link>
-              <Link to="/projects/done" style={styles.text}>Finished Projects</Link>
-              <Link to="/projects/now" style={styles.text}>Current Projects</Link>
-              <Link to="/projects/soon" style={styles.text}>Pending Projects</Link>
-              <Link to="/projects/new" style={styles.text}>New Project</Link>
+              <Link to="/projects/all" className="shadow-box">All Projects</Link>
+              <Link to="/projects/done" className="shadow-box">Finished Projects</Link>
+              <Link to="/projects/now" className="shadow-box">Current Projects</Link>
+              <Link to="/projects/soon" className="shadow-box">Pending Projects</Link>
+              <Link to="/projects/new" className="shadow-box">New Project</Link>
             </div>
           </div>
           <div className="dropdown">
-            <button className="dropButton" style={{...styles.enlarge, ...styles.text}}>Supplies</button>
+            <button className="dropButton shadow-box" style={styles.enlarge}>Supplies</button>
             <div className="dropdown-content">
-              <Link to="/supplies/all" style={styles.text}>All Supplies</Link>
-              <Link to="/supplies/new" style={styles.text}>Add Supplies</Link>
+              <Link to="/supplies/all" className="shadow-box">All Supplies</Link>
+              <Link to="/supplies/new" className="shadow-box">Add Supplies</Link>
             </div>
           </div>
           <div className="dropdown">
-            <button className="dropButton" style={{...styles.enlarge, ...styles.text}}>Account</button>
+            <button className="dropButton shadow-box" style={styles.enlarge}>Account</button>
             <div className="dropdown-content">
-              <Link to="/account" style={styles.text}>Change User</Link>
+              <Link to="/account" className="shadow-box">Change User</Link>
             </div>
           </div>
         </div>

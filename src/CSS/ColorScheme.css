@@ -1,0 +1,149 @@
+/* Color classes to be used through application with global variables for colors in root formatted as: Red, Green, Blue; */
+:root {
+  /* background */
+  --darkBack: 75, 0, 130;
+  --lightBack: 255, 248, 220;
+  /* text */
+  --darkText: 75, 0, 130;
+  --lightText: 255, 248, 220;
+  /* button */
+  --borderActive: 0, 0, 0;
+  --borderFocus: 0, 255, 255;
+  --borderNormal: 128, 128, 128;
+  --negative: 255, 49, 49;
+  --positive: 0, 158, 96;
+  /* other */
+  --input: 230, 230, 250;
+}
+
+body {
+  background-color: rgb(var(--lightBack));
+}
+
+/* Base Classes */
+.shadow-box {
+  background-color: rgb(var(--darkBack));
+  color: rgb(var(--lightText));
+}
+
+.light-box {
+  background-color: rgb(var(--lightBack));
+  color: rgb(var(--darkText));
+}
+
+.shadow-border {
+  border-color: rgb(var(--darkBack));
+}
+
+.light-border {
+  border-color: rgb(var(--lightBack));
+}
+
+.input-field {
+  background-color: rgb(var(--input));
+}
+
+.shadow-button {
+  background-color: rgba(var(--darkBack), 0.8);
+  color: rgb(var(--lightText));
+  border: solid rgba(var(--borderNormal), 0.8);
+}
+
+.light-button {
+  background-color: rgba(var(--lightBack), 0.8);
+  color: rgb(var(--darkText));
+  border: solid rgba(var(--borderNormal), 0.8);
+}
+
+.positive-button {
+  background-color: rgba(var(--positive), 0.8);
+  color: rgb(var(--darkText));
+  border: solid rgba(var(--borderNormal), 0.8);
+}
+
+.negative-button {
+  background-color: rgba(var(--negative), 0.8);
+  color: rgb(var(--darkText));
+  border: solid rgba(var(--borderNormal), 0.8);
+}
+
+/* Pseudo Class Modifiers */
+.input-field:focus {
+  outline-color: rgb(var(--borderFocus));
+}
+
+.interaction-field:focus {
+  outline-color: rgb(var(--borderFocus));
+}
+
+.shadow-button:hover {
+  background-color: rgb(var(--darkText));
+  border: solid rgb(var(--borderNormal));
+}
+.shadow-button:disabled {
+  background-color: rgba(var(--darkText), 0.6);
+  border: solid rgba(var(--borderNormal), 0.6);
+}
+.shadow-button:not(:disabled):focus {
+  background-color: rgb(var(--darkText));
+  border: solid rgb(var(--borderFocus));
+  outline: none;
+}
+.shadow-button:not(:disabled):active {
+  background-color: rgb(var(--darkText));
+  border: solid rgb(var(--borderActive));
+}
+
+.light-button:hover {
+  background-color: rgb(var(--lightText));
+  border: solid rgb(var(--borderNormal));
+}
+.light-button:disabled {
+  background-color: rgba(var(--lightText), 0.6);
+  border: solid rgba(var(--borderNormal), 0.6);
+}
+.light-button:not(:disabled):focus {
+  background-color: rgb(var(--lightText));
+  border: solid rgb(var(--borderFocus));
+  outline: none;
+}
+.light-button:not(:disabled):active {
+  background-color: rgb(var(--lightText));
+  border: solid rgb(var(--borderActive));
+}
+
+.positive-button:hover {
+  background-color: rgb(var(--positive));
+  border: solid rgb(var(--borderNormal));
+}
+.positive-button:disabled {
+  background-color: rgba(var(--positive), 0.6);
+  border: solid rgba(var(--borderNormal), 0.6);
+}
+.positive-button:not(:disabled):focus {
+  background-color: rgb(var(--positive));
+  border: solid rgb(var(--borderFocus));
+  outline: none;
+}
+.positive-button:not(:disabled):active {
+  background-color: rgb(var(--positive));
+  border: solid rgb(var(--borderActive));
+}
+
+.negative-button:hover {
+  background-color: rgb(var(--negative));
+  border: solid rgb(var(--borderNormal));
+}
+.negative-button:disabled {
+  background-color: rgba(var(--negative), 0.6);
+  border: solid rgba(var(--borderNormal), 0.6);
+}
+.negative-button:not(:disabled):focus {
+  background-color: rgb(var(--negative));
+  border: solid rgb(var(--borderFocus));
+  outline: none;
+}
+.negative-button:not(:disabled):active {
+  background-color: rgb(var(--negative));
+  border: solid rgb(var(--borderActive));
+}

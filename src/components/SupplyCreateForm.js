@@ -134,7 +134,7 @@ class SupplyCreateForm extends React.Component {
     //Styles Object
     const styles = {
       table:{
-        base:{
+        componentBase:{
           display: "grid",
           gridTemplateRows: "auto auto auto auto auto auto auto",
           gridTemplateColumns: "1fr",
@@ -146,86 +146,58 @@ class SupplyCreateForm extends React.Component {
           gridTemplateColumns: "auto 70%",
           gap: "1em"
         },
-        modal:{
-          width: "100%",
-          height: "100%",
+        modalBase:{
           display: "grid",
           gridTemplateRows: "auto 5%",
           gridTemplateColumns: "1fr",
-          gap: "1em"
+          gap: "1em",
+          width: "100%",
+          height: "100%"
         },
-        cell:{
-          title:{
-            body:{
-              fontSize: "1.5em",
-              fontWeight: "700",
-              margin: "0em",
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center"
-            },
-            modal:{
-              fontSize: "2em",
-              margin: ".5em",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "flex-end"
-            }
-          },
-          input:{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            height: "100%",
-            fontSize: "1em",
-            fontWeight: "500"
-          },
-          modal:{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            flexDirection: "column"
-          },
-          button:{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center"
-          }
+      },
+      gridCell:{
+        label:{
+          fontSize: "1.5em",
+          fontWeight: "700",
+          margin: "0em"
+        },
+        modalBody:{
+          fontSize: "2em",
+          margin: ".5em"
+        },
+        input:{
+          height: "100%",
+          fontSize: "1em",
+          fontWeight: "500"
         }
       },
       button:{
         submit:{
-          background: "indigo",
-          color: "cornsilk",
           padding: "1em 1.5em",
           borderRadius: "1em",
           fontSize: "1em",
           fontWeight: "900"
         },
-        modal:{
-          background: "cornsilk",
-          color: "indigo",
+        effect:{
           borderRadius: "1em",
           fontSize: "1em",
-          fontWeight: "900"
+          fontWeight: "700"
         }
       },
       border:{
-        border: ".25em indigo solid",
+        borderWidth: ".25em",
+        borderStyle: "solid",
         borderRadius: "2em",
         padding: "1em"
       },
-      input:{
-        background: "lavender",
+      inputField:{
         fontSize: "1em",
         marginLeft: ".5em",
         marginRight: ".5em"
       },
-      picture:{
-        framing:{
-          background: "rgba(0, 0, 0, 0.3)",
-          padding: ".5em"
-        }
+      pictureFrame:{
+        background: "rgba(0, 0, 0, 0.3)",
+        padding: ".5em"
       }
     }
 
@@ -239,31 +211,32 @@ class SupplyCreateForm extends React.Component {
 
     if(this.state.modalPosition < this.state.imageArray.length){ //display picture and allow deletion
       modalBody = 
-        <div className="center" style={{height: "100%"}}>
-          <img style={styles.picture.framing} src={this.state.imageArray[this.state.modalPosition]} alt={"Photo #" + this.state.modalPosition} />
+        <div className="flex-center" style={{height: "100%"}}>
+          <img style={styles.pictureFrame} src={this.state.imageArray[this.state.modalPosition]} alt={"Photo #" + this.state.modalPosition} />
         </div>;
     }else{ //allow input of url for display of new picture then ability to "accept" picture into array for supply
       modalBody = 
-        <div className="center" style={{height: "100%", width: "100%"}}>
-            <form style={this.combineStyles(this.generateTableStyle(2, 1, "auto"), styles.border, { height: "80%", width: "80%" })} onSubmit={this.urlSubmit}>
-            <p style={styles.table.cell.title.modal}>New Image Url</p>
-            <div style={styles.table.cell.modal}>
+        <div className="flex-center" style={{height: "100%", width: "100%"}}>
+          <form className=" shadow-border" style={this.combineStyles(this.generateTableStyle(2, 1, "auto"), styles.border, { height: "80%", width: "80%" })} onSubmit={this.urlSubmit}>
+            <p className="flex-bottom" style={styles.gridCell.modalBody}>New Image Url</p>
+            <div className="flex-left" style={{ flexDirection: "column" }}>
               <input
                 type="url"
                 name="urlNew"
                 pattern="https://.*"
                 placeholder="https://picsum.photos/id/237/200/300"
-                style={this.combineStyles(styles.input, {width: "95%"})}
+                className="input-field"
+                style={{ width: "95%" }}
                 required={true} />
-              <button type="submit">Add to List</button>
+              <button type="submit" className="positive-button">Add to List</button>
               <p style={{ maxWidth: "75%" }}>Please enter the specific URL for the photo you would like to add. Google Drive and Dropbox are some examples of places to host your images. <br /><br /> Google Drive image URLs should be modified as such: <br /> <span style={{fontWeight: "700", marginLeft: "30px"}}>Original:</span> https://drive.google.com/file/d/<mark>[image_id]</mark>/view?usp=drive_link <br /> <span style={{fontWeight: "700", marginLeft: "30px"}}>Modified:</span> https://drive.google.com/uc?export=view&id=<mark>[image_id]</mark> <br /><br /> Dropbox image URLs should be modified by changing the ending from <span style={{fontWeight: "700"}}>&dl=0</span> to <span style={{fontWeight: "700"}}>&raw=1</span></p>
             </div>
           </form>
         </div>;
     }
-    modalFooter.push(<button key={"--"} style={styles.button.modal} onClick={() => this.modalReposition("negative")} disabled={disablePrev}>Previous</button>);
-    modalFooter.push(<button key={"XX"} style={styles.button.modal} onClick={() => this.imageArrayRemove(this.state.modalPosition)} disabled={disableNext}>Delete</button>)
-    modalFooter.push(<button key={"++"} style={styles.button.modal} onClick={() => this.modalReposition("positive")} disabled={disableNext}>Next</button>);
+    modalFooter.push(<button key={"--"} className="shadow-button" style={styles.button.effect} onClick={() => this.modalReposition("negative")} disabled={disablePrev}>Previous</button>);
+    modalFooter.push(<button key={"XX"} className="negative-button" style={styles.button.effect} onClick={() => this.imageArrayRemove(this.state.modalPosition)} disabled={disableNext}>Delete</button>)
+    modalFooter.push(<button key={"++"} className="shadow-button" style={styles.button.effect} onClick={() => this.modalReposition("positive")} disabled={disableNext}>Next</button>);
 
 
     //Stock Display Logic
@@ -273,7 +246,7 @@ class SupplyCreateForm extends React.Component {
 
     stockFormBlock = this.state.stock.map((Stock, index) => {
       return (
-        <div style={styles.table.cell.input} key={"Stock" + index}>
+        <div className="flex-left" style={styles.gridCell.input} key={"Stock" + index}>
           <p>Amount:</p>
           <input
             type="number"
@@ -284,9 +257,10 @@ class SupplyCreateForm extends React.Component {
             value={Stock.amount}
             onChange={this.handleStockChange}
             required={true}
-            style={this.combineStyles(styles.input, { width: "6em" })} />
+            className="input-field"
+            style={this.combineStyles(styles.inputField, { width: "6em" })} />
           <p>Unit:</p>
-          <select name={"unit" + index} style={styles.input} value={Stock.unit} onChange={this.handleStockChange}>
+          <select name={"unit" + index} className="input-field" style={styles.inputField} value={Stock.unit} onChange={this.handleStockChange}>
             <option value="inch">Inch</option>
             <option value="yard">Yard</option>
             <option value="units">Units</option>
@@ -299,10 +273,10 @@ class SupplyCreateForm extends React.Component {
 
     //Return Logic
     return(
-      <div style={{background: "cornsilk"}}>
+      <div className="light-box">
 
         <ModalBasic show={displayBool} handleClose={this.modalHide}>
-          <div style={styles.table.modal}>
+          <div className="light-box" style={styles.table.modalBase}>
             {/* Modal Display Logic Render Point */}
             {modalBody}
             <div style={this.generateTableStyle(1, 3, "1fr")}>{modalFooter}</div>
@@ -310,77 +284,81 @@ class SupplyCreateForm extends React.Component {
         </ModalBasic>
 
 
-        <h1 className="center">Input Supplies</h1>
+        <h1 className="flex-center">Input Supplies</h1>
 
-        <div className="center" style={{width: "100vw"}}>
+        <div className="flex-center" style={{width: "100vw"}}>
           <form style={{width: "80vw"}} onSubmit={this.submitFunction}>
-            <div style={this.combineStyles(styles.table.base, styles.border)}>
+            <div className="shadow-border" style={this.combineStyles(styles.table.componentBase, styles.border)}>
 
               <div style={styles.table.inputRow}>
-                <p style={styles.table.cell.title.body}>Supply Name*</p>
-                <div style={styles.table.cell.input}>
+                <p className="flex-right" style={styles.gridCell.label}>Supply Name*</p>
+                <div className="flex-left" style={styles.gridCell.input}>
                   <input
                     type="text"
                     name="supplyName"
-                    style={styles.input}
+                    className="input-field"
+                    style={styles.inputField}
                     required={true} />
                 </div>
               </div>
 
               <div style={styles.table.inputRow}>
-                <p style={styles.table.cell.title.body}>Location*</p>
-                <div style={styles.table.cell.input}>
+                <p className="flex-right" style={styles.gridCell.label}>Location*</p>
+                <div className="flex-left" style={styles.gridCell.input}>
                   <input
                     type="text"
                     name="location"
-                    style={styles.input}
+                    className="input-field"
+                    style={styles.inputField}
                     required={true} />
                 </div>
               </div>
 
               <div style={styles.table.inputRow}>
-                <p style={styles.table.cell.title.body}>Description</p>
-                <div style={this.combineStyles(styles.table.cell.input, {width: "50vw"})}>
+                <p className="flex-right" style={styles.gridCell.label}>Description</p>
+                <div className="flex-left" style={this.combineStyles(styles.gridCell.input, {width: "50vw"})}>
                   <textarea
                     name="description"
-                    style={this.combineStyles(styles.input, {minHeight: "3em", minWidth: "15em"})} />
+                    className="input-field"
+                    style={this.combineStyles(styles.inputField, {minHeight: "3em", minWidth: "15em"})} />
                 </div>
               </div>
 
               <div style={styles.table.inputRow}>
-                <p style={styles.table.cell.title.body}>Comments</p>
-                <div style={this.combineStyles(styles.table.cell.input, {width: "50vw"})}>
+                <p className="flex-right" style={styles.gridCell.label}>Comments</p>
+                <div className="flex-left" style={this.combineStyles(styles.gridCell.input, {width: "50vw"})}>
                   <textarea
                     name="comments"
-                    style={this.combineStyles(styles.input, {minHeight: "3em", minWidth: "15em"})} />
+                    className="input-field"
+                    style={this.combineStyles(styles.inputField, {minHeight: "3em", minWidth: "15em"})} />
                 </div>
               </div>
 
               <div style={styles.table.inputRow}>
-                <p style={styles.table.cell.title.body}>Photos</p>
-                <div style={this.combineStyles(styles.table.cell.input, {height: "10vh"})}>
-                  <img src={imageNew} alt="Plus Button" title="Click to Add Images" onClick={this.modalShow} />
+                <p className="flex-right" style={styles.gridCell.label}>Photos</p>
+                <div className="flex-left" style={this.combineStyles(styles.gridCell.input, {height: "10vh"})}>
+                  <span tabIndex="0" className="interaction-field" style={{ height: "100%", aspectRatio: "1 / 1" }} onClick={this.modalShow} ><img src={imageNew} alt="Plus Button" title="Click to Add Images" /></span>
                   <p>You have {this.state.imageArray.length} images saved for this supply entry</p>
                 </div>
               </div>
 
               <div style={styles.table.inputRow}>
                 <div style={this.combineStyles(this.generateTableStyle(this.state.stock.length + 1, 1, "1fr"), {height: "100%"})}>
-                <p style={styles.table.cell.title.body}>Stock*</p>
+                  <p className="flex-right" style={styles.gridCell.label}>Stock*</p>
                 </div>
                 <div style={this.generateTableStyle(this.state.stock.length + 1, 1, "1fr")}>
                   {stockFormBlock}  {/* Stock Display Logic Render Point */}
 
-                  <div style={styles.table.cell.input}>
-                    <button disabled={disableAddStock} onClick={this.stockObjectAdd} style={this.combineStyles(styles.button.modal, {background: "limegreen", marginLeft: "1.5em", marginRight: "1.5em"})} type="button">Add Stock</button>
-                    <button disabled={disableRemoveStock} onClick={this.stockObjectRemove} style={this.combineStyles(styles.button.modal, { background: "red", marginLeft: "1.5em", marginRight: "1.5em" })} type="button">Remove Stock</button>
+                  <div className="flex-left" style={styles.gridCell.input}>
+                    <button disabled={disableAddStock} onClick={this.stockObjectAdd} className="positive-button" style={this.combineStyles(styles.button.effect, { marginLeft: "1.5em", marginRight: "1.5em", padding: ".5em" })} type="button">Add Stock</button>
+                    <button disabled={disableRemoveStock} onClick={this.stockObjectRemove} className="negative-button" style={this.combineStyles(styles.button.effect, { marginLeft: "1.5em", marginRight: "1.5em", padding: ".5em" })} type="button">Remove Stock</button>
                   </div>
 
                 </div>
               </div>
 
-              <div style={styles.table.cell.button}>
-                <button style={styles.button.submit} type="submit">Submit</button>
+              <div className="flex-right">
+                <button className="shadow-button" style={styles.button.submit} type="submit">Submit</button>
               </div>
 
             </div>

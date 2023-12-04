@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouteMatch, Switch, Route, Redirect } from "react-router-dom";
+import ProjectCreateForm from "./ProjectCreateForm";
 
 function ProjectRouter() {
   let { path, url } = useRouteMatch();
@@ -22,7 +23,7 @@ function ProjectRouter() {
         <h2>Soon Route</h2>
       </Route>
       <Route path={`${url}/new`} >
-        <h2>New Route</h2>
+        <ProjectCreateForm />
       </Route>
     </Switch>
   )

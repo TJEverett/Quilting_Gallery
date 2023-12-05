@@ -7,14 +7,14 @@ function ProjectRouter() {
 
   return(
     <Switch>
-      <Route exact path={path} >
+      <Route exact strict path={path} >
         <Redirect from={url} to={`${url}/all`} />
       </Route>
       <Route path={`${url}/all`} >
-        <h2>Done Route</h2>
+        <h2>All Route</h2>
       </Route>
       <Route path={`${url}/done`} >
-        <h2>All Route</h2>
+        <h2>Done Route</h2>
       </Route>
       <Route path={`${url}/now`} >
         <h2>Now Route</h2>

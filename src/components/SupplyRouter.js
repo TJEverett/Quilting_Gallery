@@ -7,11 +7,11 @@ function SupplyRouter() {
 
   return (
     <Switch>
-      <Route exact path={path} >
+      <Route exact strict path={path} >
         <Redirect from={url} to={`${url}/all`} />
       </Route>
       <Route path={`${url}/all`} >
-        <h2>Done Supplies Route</h2>
+        <h2>All Supplies Route</h2>
       </Route>
       <Route path={`${url}/new`} >
         <SupplyCreateForm />

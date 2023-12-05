@@ -59,19 +59,19 @@ class SupplyCreateForm extends React.Component {
 
   //State Functions
   imageArrayAdd = (newUrl) => {
-    let imageArrayNew = this.state.imageArray;
+    let imageArrayNew = JSON.parse(JSON.stringify(this.state.imageArray));
     imageArrayNew.push(newUrl);
-    this.setState({imageNew: imageArrayNew});
+    this.setState({imageArray: imageArrayNew});
   }
 
   imageArrayRemove = (removePosition) => {
-    let imageArrayNew = this.state.imageArray;
+    let imageArrayNew = JSON.parse(JSON.stringify(this.state.imageArray));
     imageArrayNew.splice(removePosition, 1);
     this.setState({imageArray: imageArrayNew});
   }
 
   stockObjectAdd = () => {
-    let stockArrayNew = this.state.stock;
+    let stockArrayNew = JSON.parse(JSON.stringify(this.state.stock));
     if(stockArrayNew.length <= 9){
       stockArrayNew.push({ amount: 0, unit: "units" });
       this.setState({stock: stockArrayNew});
@@ -79,7 +79,7 @@ class SupplyCreateForm extends React.Component {
   }
 
   stockObjectRemove = () => {
-    let stockArrayNew = this.state.stock;
+    let stockArrayNew = JSON.parse(JSON.stringify(this.state.stock));
     if(stockArrayNew.length >= 2){
       stockArrayNew.pop();
       this.setState({stock: stockArrayNew});
@@ -89,7 +89,7 @@ class SupplyCreateForm extends React.Component {
   handleStockChange = (event) => {
     const rawName = event.target.name;
     let value = event.target.value;
-    let stockArrayNew = this.state.stock;
+    let stockArrayNew = JSON.parse(JSON.stringify(this.state.stock));
     const index = (rawName.charAt(rawName.length - 1));
     const name = rawName.slice(0, (rawName.length - 1));
     if(name === "amount"){
@@ -112,8 +112,8 @@ class SupplyCreateForm extends React.Component {
     let submitBlock = {
       Name: event.target.supplyName.value,
       Location: event.target.location.value,
-      Stock: this.state.stock,
-      ImageArray: this.state.imageArray,
+      Stock: JSON.parse(JSON.stringify(this.state.stock)),
+      ImageArray: JSON.parse(JSON.stringify(this.state.imageArray)),
       Description: event.target.description.value,
       Comments: event.target.comments.value
     };

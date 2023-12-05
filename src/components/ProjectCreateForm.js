@@ -83,7 +83,7 @@ class ProjectCreateForm extends React.Component {
       Location: event.target.location.value,
       Recipient: event.target.recipient.value,
       Comments: event.target.comments.value,
-      ImageArray: this.state.imageArray,
+      ImageArray: JSON.parse(JSON.stringify(this.state.imageArray)),
       ProjectCategory: event.target.category.value,
       ProjectDate: (submitDate.toUTCString()).slice(0, 16),
       ProjectPercentage: parseInt(event.target.completionPercent.value)

@@ -50,6 +50,7 @@
 
 * User will be able to search Projects and Supplies based on name
 
+* Add check for image website inputs to only allow images (possible website)[https://stackoverflow.com/questions/9714525/javascript-image-url-verify]
 * Supplies will contain new data sets for: Custom Category, Supplier Info, and Price (max 2 decimals)
 * Projects will contain new data sets for: Supplies List, and Expense List
 * User will be able to assign Supplies to a Project allowing better management of Supplies for timing of new purchases

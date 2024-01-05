@@ -22,7 +22,14 @@ class Image extends React.Component {
 
   render(){
     return(
-      <img src={this.state.src || imageFail} onError={this.onError} alt={this.props.alt} title={this.props.title} className={this.props.classes} style={this.props.styles} />
+      <img
+        onError={this.onError}
+        src={this.state.src || imageFail}
+        alt={this.props.alt}
+        title={this.props.title}
+        className={this.props.classes}
+        style={this.props.styles}
+      />
     )
   }
 }

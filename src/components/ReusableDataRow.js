@@ -41,7 +41,7 @@ function ReusableDataRow(props){
   return(
     <div className="shadow-border" style={combineStyles(pickTable(props.displayContent.length), styles.border)}>
       <div className="flex-center" style={{height: "100%"}}>
-        <Image src={props.imageUrl} alt="thumbnail" />
+        <Image src={props.imageUrl} alt={(props.displayContent[0] ?? "No") + " thumbnail"} />
       </div>
       {props.displayContent.map((toDisplay, index) => {
         return(

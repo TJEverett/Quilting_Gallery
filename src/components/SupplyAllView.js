@@ -28,7 +28,7 @@ function SupplyAllView(props) {
       <h2 className="flex-center">Supply All View</h2>
       <div style={combineStyles(styles.table, {gridTemplateRows: ("10vh ").repeat(props.supplyArray.length)})}>
         {props.supplyArray.map((supply, index) => {
-          let imageUrl = supply.ImageArray[0];
+          let imageUrl = supply.ImageArray[0] ?? "https://www.google.com/";
           let supplyName = supply.Name;
           let supplyStock = supply.Stock[0].amount + " " + supply.Stock[0].unit;
           return(

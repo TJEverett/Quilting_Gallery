@@ -148,7 +148,7 @@ class SupplyCreateForm extends React.Component {
         },
         modalBase:{
           display: "grid",
-          gridTemplateRows: "auto 5%",
+          gridTemplateRows: "92.5% 5%",
           gridTemplateColumns: "1fr",
           gap: "1em",
           width: "100%",

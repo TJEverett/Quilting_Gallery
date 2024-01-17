@@ -12,7 +12,6 @@ function SupplyAllView(props) {
     }
   };
 
-
   // Style Logic
   function combineStyles(...args) {
     let comboStyle = {};
@@ -28,13 +27,12 @@ function SupplyAllView(props) {
       <h2 className="flex-center">Supply All View</h2>
       <div style={combineStyles(styles.table, {gridTemplateRows: ("10vh ").repeat(props.supplyArray.length)})}>
         {props.supplyArray.map((supply, index) => {
-          let imageUrl = supply.ImageArray[0] ?? "https://www.google.com/";
+          const  imageUrl = supply.ImageArray[0] ?? "";
           let supplyName = supply.Name;
           let supplyStock = supply.Stock[0].amount + " " + supply.Stock[0].unit;
+          const displayContent = [supplyName, supplyStock];
           return(
-            <div key={index}>
-              <ReusableDataRow imageUrl={imageUrl} displayContent={[supplyName, supplyStock]}/>
-            </div>
+            <ReusableDataRow imageUrl={imageUrl} displayContent={displayContent} key={index} />
           );
         })}
       </div>

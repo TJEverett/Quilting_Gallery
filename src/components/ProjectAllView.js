@@ -40,13 +40,12 @@ function ProjectAllView(props) {
       <h2 className="flex-center">Project All View</h2>
       <div style={combineStyles(styles.table, {gridTemplateRows: ("10vh ".repeat(props.projectArray.length))})}>
         {props.projectArray.map((project, index) => {
-          let imageUrl = project.ImageArray[0] ?? "https://www.google.com/";
+          const imageUrl = project.ImageArray[0] ?? "";
           let projectName = project.Name;
           let projectStatus = backToFrontStatus(project.ProjectCategory);
+          const displayContent = [projectName, projectStatus];
           return(
-            <div key={index}>
-              <ReusableDataRow imageUrl={imageUrl} displayContent={[projectName, projectStatus]} />
-            </div>
+            <ReusableDataRow imageUrl={imageUrl} displayContent={displayContent} key={index} />
           );
         })}
       </div>

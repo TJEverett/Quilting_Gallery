@@ -3,6 +3,7 @@ import { useRouteMatch, Switch, Route, Redirect } from "react-router-dom";
 import ProjectCreateForm from "./ProjectCreateForm";
 import ProjectAllView from "./ProjectAllView";
 import ProjectDoneView from "./ProjectDoneView";
+import ProjectNowView from "./ProjectNowView";
 
 function ProjectRouter() {
   let { path, url } = useRouteMatch();
@@ -74,11 +75,10 @@ function ProjectRouter() {
         <ProjectAllView projectArray={ProjectList}/>
       </Route>
       <Route path={`${url}/done`} >
-
         <ProjectDoneView projectArray={ProjectList.filter(e => e.ProjectCategory === "complete")} />
       </Route>
       <Route path={`${url}/now`} >
-        <h2>Now Route</h2>
+        <ProjectNowView projectArray={ProjectList.filter(e => e.ProjectCategory === "current")}/>
       </Route>
       <Route path={`${url}/soon`} >
         <h2>Soon Route</h2>

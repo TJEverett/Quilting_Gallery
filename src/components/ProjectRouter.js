@@ -4,6 +4,7 @@ import ProjectCreateForm from "./ProjectCreateForm";
 import ProjectAllView from "./ProjectAllView";
 import ProjectDoneView from "./ProjectDoneView";
 import ProjectNowView from "./ProjectNowView";
+import ProjectSoonView from "./ProjectSoonView";
 
 function ProjectRouter() {
   let { path, url } = useRouteMatch();
@@ -81,7 +82,7 @@ function ProjectRouter() {
         <ProjectNowView projectArray={ProjectList.filter(e => e.ProjectCategory === "current")}/>
       </Route>
       <Route path={`${url}/soon`} >
-        <h2>Soon Route</h2>
+        <ProjectSoonView projectArray={ProjectList.filter(e => e.ProjectCategory === "pending")}/>
       </Route>
       <Route path={`${url}/new`} >
         <ProjectCreateForm />

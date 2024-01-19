@@ -6,9 +6,9 @@ import Image from "./Image";
 function ReusableDataRow(props){
   // Styles Object
   const styles = {
-    tableBase: {
+    table: {
       display: "grid",
-      gridTemplateColumns: "1fr",
+      gridTemplateColumns: "1fr 1fr 1fr 1fr",
       gridTemplateRows: "100%",
       gap: ".25em",
       height: "100%"
@@ -30,16 +30,10 @@ function ReusableDataRow(props){
     return comboStyle;
   }
 
-  function pickTable(length) {
-    let table = styles.tableBase;
-    table.gridTemplateColumns += " 1fr".repeat(length);
-    return table;
-  }
-
 
   // Return Logic
   return(
-    <div className="shadow-border" style={combineStyles(pickTable(props.displayContent.length), styles.border)}>
+    <div className="shadow-border" style={combineStyles(styles.table, styles.border)}>
       <div className="flex-center" style={{height: "100%"}}>
         <Image src={props.imageUrl} alt={(props.displayContent[0] ?? "No") + " thumbnail"} />
       </div>

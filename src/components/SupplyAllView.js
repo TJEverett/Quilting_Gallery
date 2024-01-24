@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReusableDataRow from "./ReusableDataRow";
+import ReusableHeaderRow from "./ReusableHeaderRow";
 
 function SupplyAllView(props) {
   // Style Object
@@ -25,7 +26,8 @@ function SupplyAllView(props) {
   return(
     <div>
       <h2 className="flex-center">Supply All View</h2>
-      <div style={combineStyles(styles.table, {gridTemplateRows: ("10vh ").repeat(props.supplyArray.length)})}>
+      <div style={combineStyles(styles.table, {gridTemplateRows: ("max(10vh, 5em) ").repeat(props.supplyArray.length + 1)})}>
+        <ReusableHeaderRow displayContent={["Images", "Supply Name", "Stock"]} />
         {props.supplyArray.map((supply, index) => {
           const  imageUrl = supply.ImageArray[0] ?? "";
           let supplyName = supply.Name;

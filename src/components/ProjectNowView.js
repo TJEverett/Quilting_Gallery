@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReusableDataRow from "./ReusableDataRow";
+import ReusableHeaderRow from "./ReusableHeaderRow";
 
 function ProjectNowView(props) {
   // Style Object
@@ -25,7 +26,8 @@ function ProjectNowView(props) {
   return(
     <div>
       <h2 className="flex-center">Current Projects</h2>
-      <div style={combineStyles(styles.table, {gridTemplateRows: ("10vh ".repeat(props.projectArray.length))})}>
+      <div style={combineStyles(styles.table, {gridTemplateRows: ("max(10vh, 5em) ".repeat(props.projectArray.length + 1))})}>
+        <ReusableHeaderRow displayContent={["Images", "Project Name", "Expected Completion Date"]} />
         {props.projectArray.map((project, index) => {
           const imageUrl = project.ImageArray[0] ?? "";
           let projectName = project.Name;

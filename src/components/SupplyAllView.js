@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReusableDataRow from "./ReusableDataRow";
+import ReusableHeaderRow from "./ReusableHeaderRow";
 
 function SupplyAllView(props) {
   // Style Object
@@ -11,7 +12,6 @@ function SupplyAllView(props) {
       gap: ".5em"
     }
   };
-
 
   // Style Logic
   function combineStyles(...args) {
@@ -26,15 +26,15 @@ function SupplyAllView(props) {
   return(
     <div>
       <h2 className="flex-center">Supply All View</h2>
-      <div style={combineStyles(styles.table, {gridTemplateRows: ("10vh ").repeat(props.supplyArray.length)})}>
+      <div style={combineStyles(styles.table, {gridTemplateRows: ("max(10vh, 5em) ").repeat(props.supplyArray.length + 1)})}>
+        <ReusableHeaderRow displayContent={["Images", "Supply Name", "Stock"]} />
         {props.supplyArray.map((supply, index) => {
-          let imageUrl = supply.ImageArray[0] ?? "https://www.google.com/";
+          const  imageUrl = supply.ImageArray[0] ?? "";
           let supplyName = supply.Name;
           let supplyStock = supply.Stock[0].amount + " " + supply.Stock[0].unit;
+          const displayContent = [supplyName, supplyStock];
           return(
-            <div key={index}>
-              <ReusableDataRow imageUrl={imageUrl} displayContent={[supplyName, supplyStock]}/>
-            </div>
+            <ReusableDataRow imageUrl={imageUrl} displayContent={displayContent} key={index} />
           );
         })}
       </div>

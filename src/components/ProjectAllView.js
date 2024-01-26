@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReusableDataRow from "./ReusableDataRow";
+import ReusableHeaderRow from "./ReusableHeaderRow";
 
 function ProjectAllView(props) {
   // Style Object
@@ -38,15 +39,15 @@ function ProjectAllView(props) {
   return(
     <div>
       <h2 className="flex-center">Project All View</h2>
-      <div style={combineStyles(styles.table, {gridTemplateRows: ("10vh ".repeat(props.projectArray.length))})}>
+      <div style={combineStyles(styles.table, {gridTemplateRows: ("max(10vh, 5em) ".repeat(props.projectArray.length + 1))})}>
+        <ReusableHeaderRow displayContent={["Images", "Project Name", "Project Status"]} />
         {props.projectArray.map((project, index) => {
-          let imageUrl = project.ImageArray[0] ?? "https://www.google.com/";
+          const imageUrl = project.ImageArray[0] ?? "";
           let projectName = project.Name;
           let projectStatus = backToFrontStatus(project.ProjectCategory);
+          const displayContent = [projectName, projectStatus];
           return(
-            <div key={index}>
-              <ReusableDataRow imageUrl={imageUrl} displayContent={[projectName, projectStatus]} />
-            </div>
+            <ReusableDataRow imageUrl={imageUrl} displayContent={displayContent} key={index} />
           );
         })}
       </div>

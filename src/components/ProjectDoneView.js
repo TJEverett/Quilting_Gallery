@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReusableDataRow from "./ReusableDataRow";
+import ReusableHeaderRow from "./ReusableHeaderRow";
 
-function ProjectDoneView(props){
+function ProjectDoneView(props) {
   // Style Object
   const styles = {
     table: {
@@ -13,7 +14,7 @@ function ProjectDoneView(props){
   };
 
   // Style Logic
-  function combineStyles(...args){
+  function combineStyles(...args) {
     let comboStyle = {};
     args.forEach(style => {
       comboStyle = {...comboStyle, ...style};
@@ -25,16 +26,16 @@ function ProjectDoneView(props){
   return(
     <div>
       <h2 className="flex-center">Finished Projects</h2>
-      <div style={combineStyles(styles.table, {gridTemplateRows: ("10vh ".repeat(props.projectArray.length))})}>
+      <div style={combineStyles(styles.table, {gridTemplateRows: ("max(10vh, 5em) ".repeat(props.projectArray.length + 1))})}>
+        <ReusableHeaderRow displayContent={["Images", "Project Name", "Date Completed", "Recipient"]} />
         {props.projectArray.map((project, index) => {
-          let imageUrl = project.ImageArray[0] ?? "https://www.google.com/";
+          const  imageUrl = project.ImageArray[0] ?? "";
           let projectName = project.Name;
           let projectDate = project.ProjectDate;
           let projectRecipient = project.Recipient;
+          const displayContent = [projectName, projectDate, projectRecipient];
           return(
-            <div key={index}>
-              <ReusableDataRow imageUrl={imageUrl} displayContent={[projectName, projectDate, projectRecipient]} />
-            </div>
+            <ReusableDataRow imageUrl={imageUrl} displayContent={displayContent} key={index} />
           )
         })}
       </div>

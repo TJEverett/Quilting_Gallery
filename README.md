@@ -1,6 +1,6 @@
 # Quilting Gallery
 
-#### _Quilting Project/Material Manager, 07/21/2023_
+#### _Quilting Project/Material Manager, 01/26/2024_
 
 #### By _**Tristen Everett**_
 
@@ -14,24 +14,31 @@
 
 ### MVP User Stories (Completed)
 
-* 
+* Users will be able to navigate between 5 "Areas": Finished Projects, Current Projects, Pending Projects, All Projects, and Supplies
+* Users will be able to **PRACTICE CREATING** Projects containing data for: Pattern Name, Dates (finished date/due date), Comments, Recipient (known/planned), Storage Location, Completion Percentage, Photos, and Current Category
+* Users will be able to **PRACTICE CREATING** Supplies containing data for: Supply Name, Stock (quantity of items/length for fabric), Description, Photo, and Storage Location
+* Users will be able to add Photos to both Projects and Supplies by inputting a URL where the Photo is saved (examples: DropBox or Google Drive)
+
+* Program will render Finished Projects in a list view **in the order they were entered**, each entry will include a thumbnail of the first associated photo, pattern name, date (finished), and recipient
+* Program will render Current Projects in a list view **in the order they were entered**, each entry will include a thumbnail of the first associated picture, pattern name, and date (due)
+* Program will render Pending Projects in a list view **in the order they were entered**, each entry will include a thumbnail of the first associated photo, and pattern name
+* Program will render All Projects in a list view **in the order they were entered**, each entry will include a thumbnail of the first associated photo, pattern name, and current stage (finished, current, or pending)
+* Program will render All Supplies **in the order they were entered**, each entry will include a thumbnail of the first associated photo, supply name, and first associated stock amount
 
 ### MVP User Stories (To Be Added)
 
-* Users will be able to navigate between 5 "Areas": Finished Projects, Current Projects, Pending Projects, All Projects, and Supplies
-* Users will be able to add Projects to the database containing data for: Pattern Name, Dates (finished date/due date), Comments, Recipient (known/planned), Storage Location, Completion Percentage, Photos, and Current Category
-* Users will be able to add Supplies to the database containing data for: Supply Name, Stock (quantity of items/length for fabric), Description, Photo, and Storage Location
-* Users will be able to add Photos to both Projects and Supplies by inputting a URL where the Photo is saved (examples: DropBox or Google Drive)
-* Users will be able to modify Projects to either move them between Current Category or modify other properties
-* Users will be able to modify Supplies to either modify Stock or other properties
+* Users will be able to add Projects to the **DATABASE** containing data for: Pattern Name, Dates (finished date/due date), Comments, Recipient (known/planned), Storage Location, Completion Percentage, Photos, and Current Category
+* Users will be able to add Supplies to the **DATABASE** containing data for: Supply Name, Stock (quantity of items/length for fabric), Description, Photo, and Storage Location
+* Users will be able to **MODIFY** Projects to either move them between Current Category or **MODIFY** other properties
+* Users will be able to **MODIFY** Supplies to either **MODIFY** Stock or other properties
 
-* Program will render Finished Projects in a list view based on completion date, each entry will include a thumbnail of the first associated photo, pattern name, date (finished), and recipient
-* Program will render Current Projects in a list view based on due date and colored to indicate proximity to the deadline, each entry will include a thumbnail of the first associated picture, pattern name, date (due), and completion percentage
-* Program will render Pending Projects in a list view based on pattern name, each entry will include a thumbnail of the first associated photo, and pattern name
-* Program will render All Projects in a list view based on pattern name, each entry will include a thumbnail of the first associated photo, pattern name, and current stage (finished, current, or pending)
-* Program will render individual Projects if selected to view allowing User to see full details and allowing ability to move through full selection of assigned photos
-* Program will render Supplies alphabetically with all items that have zero stock at the end of the list
-* Program will require Users to authenticate with different accounts and store separate Projects and Supplies for each User
+* Program will render Finished Projects in a list view **based on completion date**, each entry will include a thumbnail of the first associated photo, pattern name, date (finished), and recipient
+* Program will render Current Projects in a list view **based on due date and colored to indicate proximity to the deadline**, each entry will include a thumbnail of the first associated picture, pattern name, and date (due)
+* Program will render Pending Projects in a list view **based on pattern name**, each entry will include a thumbnail of the first associated photo, and pattern name
+* Program will render All Projects in a list view **based on pattern name**, each entry will include a thumbnail of the first associated photo, pattern name, and current stage (finished, current, or pending)
+* Program will render individual Projects if selected to view allowing User to see full details and allowing ability to move through full selection of assigned photos **NO SPECIFIC VIEW YET**
+* Program will render Supplies alphabetically with all items that have zero stock at the end of the list **SORTING LOGIC**
+* Program will require Users to authenticate with different accounts and store separate Projects and Supplies for each User **DATABASE NEEDED**
 
 ### Future User Stories (Completed)
 
@@ -109,4 +116,4 @@
 
 This software is licensed under the MIT license
 
-Copyright (c) 2022 **_Tristen Everett_**
+Copyright (c) 2024 **_Tristen Everett_**

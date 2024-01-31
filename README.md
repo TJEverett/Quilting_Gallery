@@ -1,12 +1,14 @@
 # Quilting Gallery
 
-#### _Quilting Project/Material Manager, 01/26/2024_
+#### _Quilting Project/Material Manager, 01/31/2024_
 
 #### By _**Tristen Everett**_
 
 ## Description
 
+This project is currently in the process of being built. As of the last description update, the project has a mostly built front end using static data. Currently included front end views are: the "Account" page, four "Projects" list views and a create view, one "Supplies" list view and a create view, and a blank splash page. The only currently missing front end views are the details and edit pages for created entries in both "Projects" and "Supplies". There are also no current back-end integrations or data managements other than those stored directly in the components and passed down.
 
+This project's end goal is to connect to a Firebase Firestore Database to store both projects and supplies. The inspiration for this project is to store information about quilting projects and the materials needed to make them. It would be possible to use this project to store information, such as projects and supplies, about other hobbies instead. Depending on how different your needs are, some changes may need to be made. The finished version would also use Firebase authentication to allow multiple users to use the same database.
 
 ### Diagram
 
